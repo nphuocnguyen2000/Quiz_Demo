@@ -29,6 +29,7 @@ namespace DemoQuiz
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmExamDetail));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblDateStart = new System.Windows.Forms.Label();
             this.lblFullName = new System.Windows.Forms.Label();
@@ -306,8 +307,9 @@ namespace DemoQuiz
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmExamDetail";
-            this.Text = "frmExamDetail";
+            this.Text = "Thi";
             this.Load += new System.EventHandler(this.frmExamDetail_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

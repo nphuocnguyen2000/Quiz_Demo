@@ -13,8 +13,8 @@ namespace DemoQuiz
 {
     public partial class frmExamDetail : Form
     {
-        private int examID;
-        private string nameGr, nameBnt, nameLbl, nameRadio;
+        private int examID, demCorrect = 0, demQuantityQuiz = 0;
+        private string nameGr, nameLbl, nameRadio;
       
         private Account acc;
         public frmExamDetail()
@@ -65,8 +65,8 @@ namespace DemoQuiz
                 foreach (Quiz quiz in _dbContext.Quizs.ToList().Where(p => p.ExamID == this.examID))
                 {
                     dem++;
-                    this.nameGr ="grbox" + quiz.QuizID.ToString();
-                    this.nameBnt ="btn" + quiz.QuizID.ToString();
+                    this.demQuantityQuiz++;
+                    this.nameGr = quiz.QuizID.ToString();
                     GroupBox nameGr = new GroupBox();
                     nameGr.SuspendLayout();
                     nameGr.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
@@ -84,11 +84,11 @@ namespace DemoQuiz
                             _ = x == 100 ? x = 55 : x += 45;
                             y = 550;
                         }
-                        nameGr.Controls.Add(CreateAwserQuiz(answer.ContentAnswer, demAnswer, x, y));
+                        nameGr.Controls.Add(CreateAwserQuiz(answer.ContentAnswer, demAnswer, x, y, answer.AnswerID));
                         demAnswer++;
                     }
                     nameGr.Location = new System.Drawing.Point(0, grVertical);
-                    nameGr.Name = nameGr.ToString();
+                    nameGr.Name = this.nameGr;  //nameGr.ToString()
                     nameGr.Size = new System.Drawing.Size(1110, 137);
                     nameGr.TabIndex = 6;
                     nameGr.TabStop = false;
@@ -107,11 +107,68 @@ namespace DemoQuiz
         private void btnDone_Click(object sender, EventArgs e)
         {
             List<GroupBox> listGrBox = new List<GroupBox>();
-            foreach (GroupBox grBox in this.panelAllQuiz.Controls.OfType<GroupBox>())
+            List<RadioButton> listRdo = new List<RadioButton>();
+            foreach (GroupBox grBox in panelAllQuiz.Controls.OfType<GroupBox>())
             {
-                listGrBox.Add(grBox) ;
+                foreach (RadioButton rdo in grBox.Controls.OfType<RadioButton>())
+                {
+                    if (rdo.Checked == true)
+                    {
+                        listRdo.Add(rdo);
+                        listGrBox.Add(grBox);
+                    }
+
+                }
             }
-            
+
+            DialogResult dialogResult = MessageBox.Show("Xác nhận nộp bài ?", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                using (var _dbContext = new QuizContextDB())
+                {
+                    foreach (GroupBox grBoxComplite in listGrBox)
+                    {
+                        foreach (RadioButton rdoBtn in listRdo)
+                        {
+                            foreach (Answer answer in _dbContext.Answers.ToList()
+                                .Where(p => p.QuizID == int.Parse(grBoxComplite.Name) && p.Correct == 1.ToString() && p.AnswerID == int.Parse(rdoBtn.Name)))
+                            {
+                                this.demCorrect++;
+                            }
+                        }
+                    }
+                    float quantityCorrect = float.Parse(demCorrect.ToString());
+                    float pointPerQuiz = (float)((float)10 / float.Parse(demQuantityQuiz.ToString()));
+
+                    float pointResult = quantityCorrect * pointPerQuiz;
+
+                    Result result = new Result();
+                    result.AccountID = acc.AccountID;
+                    result.ExamID = this.examID;
+                    result.DateExam = DateTime.Now;
+                    result.Scores = pointResult;
+
+                    _dbContext.Results.Add(result);
+                    _dbContext.SaveChanges();
+                    ShowFrmResultExam(result);
+                    this.Close();
+                }
+            }
+        }
+
+        private void ShowFrmResultExam(Result result)
+        {
+            Form frmChild = this.MdiChildren.OfType<frmResultExam>().FirstOrDefault();
+
+            if (frmChild == null)
+            {
+                frmResultExam frm = new frmResultExam(result);
+                frm.StartPosition = FormStartPosition.CenterScreen;
+                frm.Dock = DockStyle.Fill;
+                frm.Show();
+                return;
+            }
+            frmChild.Activate();
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
@@ -127,14 +184,14 @@ namespace DemoQuiz
             }
         }
 
-        private RadioButton CreateAwserQuiz(string content, int dem, int x, int y)
+        private RadioButton CreateAwserQuiz(string content, int dem, int x, int y, int answerID)
         {
-            this.nameRadio = "radio" + dem.ToString();
+            this.nameRadio = answerID.ToString();
             RadioButton nameRadio = new RadioButton();
             nameRadio.AllowDrop = true;
             nameRadio.AutoSize = true;
             nameRadio.Location = new System.Drawing.Point(y, x);
-            nameRadio.Name = nameRadio.ToString();
+            nameRadio.Name = this.nameRadio;
             nameRadio.Size = new System.Drawing.Size(350, 21);
             nameRadio.TabIndex = 5;
             nameRadio.TabStop = true;
@@ -150,7 +207,7 @@ namespace DemoQuiz
             nameLbl.AutoSize = true;
             nameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             nameLbl.Location = new System.Drawing.Point(31, 18);
-            nameLbl.Name = nameLbl.ToString();
+            nameLbl.Name = this.nameLbl;
             nameLbl.Size = new System.Drawing.Size(469, 18);
             nameLbl.TabIndex = 0;
             nameLbl.Text = string.Format("Câu {0}. {1}", dem.ToString(), quizName);

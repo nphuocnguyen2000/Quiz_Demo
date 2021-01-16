@@ -109,7 +109,6 @@ namespace DemoQuiz
             if (int.Parse(acc.role) == 0)
             {
                 menuHistoryExam.Visible = true;
-                menuListExam.Visible = true;
                 menuTryExam.Visible = true;
                 menuCreateExam.Visible = false;
                 menuHistoryCreateExam.Visible = false;
@@ -119,7 +118,6 @@ namespace DemoQuiz
                 menuCreateExam.Visible = true;
                 menuHistoryCreateExam.Visible = true;
                 menuHistoryExam.Visible = false;
-                menuListExam.Visible = false;
                 menuTryExam.Visible = false;
             }
         }
@@ -131,7 +129,6 @@ namespace DemoQuiz
             btnLogout.Visible = v;
             menuSearch.Visible = v;
             menuHistoryExam.Visible = v;
-            menuListExam.Visible = v;
             menuTryExam.Visible = v;
             menuCreateExam.Visible = v;
             menuHistoryCreateExam.Visible = v;
@@ -244,6 +241,15 @@ namespace DemoQuiz
                 return;
             }
             frmChild.Activate();
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Đóng chương trình!", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

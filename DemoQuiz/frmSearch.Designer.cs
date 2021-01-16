@@ -29,11 +29,10 @@ namespace DemoQuiz
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearch));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmbClassName = new System.Windows.Forms.ComboBox();
             this.cmbFacultyName = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtExamName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,6 +46,8 @@ namespace DemoQuiz
             this.Teacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuantityTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbSubjectSearch = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResult)).BeginInit();
@@ -68,9 +69,9 @@ namespace DemoQuiz
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.cmbClassName);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.cmbSubjectSearch);
             this.groupBox1.Controls.Add(this.cmbFacultyName);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtExamName);
             this.groupBox1.Controls.Add(this.label2);
@@ -82,14 +83,6 @@ namespace DemoQuiz
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // cmbClassName
-            // 
-            this.cmbClassName.FormattingEnabled = true;
-            this.cmbClassName.Location = new System.Drawing.Point(734, 140);
-            this.cmbClassName.Name = "cmbClassName";
-            this.cmbClassName.Size = new System.Drawing.Size(376, 26);
-            this.cmbClassName.TabIndex = 5;
-            // 
             // cmbFacultyName
             // 
             this.cmbFacultyName.FormattingEnabled = true;
@@ -97,15 +90,7 @@ namespace DemoQuiz
             this.cmbFacultyName.Name = "cmbFacultyName";
             this.cmbFacultyName.Size = new System.Drawing.Size(376, 26);
             this.cmbFacultyName.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(638, 143);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 18);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Tên lớp:";
+            this.cmbFacultyName.SelectedIndexChanged += new System.EventHandler(this.cmbFacultyName_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -122,6 +107,7 @@ namespace DemoQuiz
             this.txtExamName.Name = "txtExamName";
             this.txtExamName.Size = new System.Drawing.Size(985, 24);
             this.txtExamName.TabIndex = 2;
+            this.txtExamName.TextChanged += new System.EventHandler(this.txtExamName_TextChanged);
             // 
             // label2
             // 
@@ -221,6 +207,25 @@ namespace DemoQuiz
             this.Date.MinimumWidth = 6;
             this.Date.Name = "Date";
             // 
+            // cmbSubjectSearch
+            // 
+            this.cmbSubjectSearch.FormattingEnabled = true;
+            this.cmbSubjectSearch.Location = new System.Drawing.Point(734, 140);
+            this.cmbSubjectSearch.Name = "cmbSubjectSearch";
+            this.cmbSubjectSearch.Size = new System.Drawing.Size(376, 26);
+            this.cmbSubjectSearch.TabIndex = 4;
+            this.cmbSubjectSearch.Text = "Tìm kiếm";
+            this.cmbSubjectSearch.SelectedIndexChanged += new System.EventHandler(this.cmbSubjectSearch_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(611, 143);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 18);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Tên môn học:";
+            // 
             // frmSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -229,8 +234,9 @@ namespace DemoQuiz
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSearch";
-            this.Text = "frmSearch";
+            this.Text = "Tìm kiếm";
             this.Load += new System.EventHandler(this.frmSearch_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -247,9 +253,7 @@ namespace DemoQuiz
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvSearchResult;
-        private System.Windows.Forms.ComboBox cmbClassName;
         private System.Windows.Forms.ComboBox cmbFacultyName;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtExamName;
         private System.Windows.Forms.Label label2;
@@ -261,5 +265,7 @@ namespace DemoQuiz
         private System.Windows.Forms.DataGridViewTextBoxColumn Teacher;
         private System.Windows.Forms.DataGridViewTextBoxColumn QuantityTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmbSubjectSearch;
     }
 }

@@ -23,5 +23,33 @@ namespace DemoQuiz
             InitializeComponent();
             this.acc = acc;
         }
+
+        private void frmHistoryExam_Load(object sender, EventArgs e)
+        {
+            ShowData();
+        }
+
+        private void ShowData()
+        {
+            lblFullName.Text = acc.FullName;
+            dgvHistoryExam.Rows.Clear();
+            int viTriDong, dem = 0;
+            using (var _dbContext = new QuizContextDB())
+            {
+                foreach (Result result in _dbContext.Results.Where(p => p.AccountID == acc.AccountID).ToList())
+                {
+                    if (result != null)
+                    {
+                        dem++;
+                        viTriDong = dgvHistoryExam.Rows.Add();
+                        dgvHistoryExam.Rows[viTriDong].Cells[0].Value = result.Exam.ExamID;
+                        dgvHistoryExam.Rows[viTriDong].Cells[1].Value = result.Exam.ExamName;
+                        dgvHistoryExam.Rows[viTriDong].Cells[2].Value = result.Exam.Subject.SubjectName;
+                        dgvHistoryExam.Rows[viTriDong].Cells[3].Value = result.Scores;
+                        dgvHistoryExam.Rows[viTriDong].Cells[4].Value = result.DateExam;
+                    }
+                }
+            }
+        }
     }
 }

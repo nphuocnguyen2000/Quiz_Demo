@@ -37,7 +37,7 @@ namespace DemoQuiz
             int viTriDong, dem =0;
             using (var _dbContext = new QuizContextDB())
             {
-                foreach (Exam exam in _dbContext.Exams.ToList())
+                foreach (Exam exam in _dbContext.Exams.Where(p => p.Subject.FacultyID == acc.Faculty).ToList())
                 {
                     dem++;
                     viTriDong = dgvExam.Rows.Add();

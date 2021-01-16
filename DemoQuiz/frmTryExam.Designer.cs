@@ -29,6 +29,7 @@ namespace DemoQuiz
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTryExam));
             this.label1 = new System.Windows.Forms.Label();
             this.dgvExam = new System.Windows.Forms.DataGridView();
             this.stt = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,7 +64,7 @@ namespace DemoQuiz
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.Location = new System.Drawing.Point(443, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(360, 39);
+            this.label1.Size = new System.Drawing.Size(346, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "TẤT CẢ CÁC ĐỀ THI";
             // 
@@ -301,8 +302,9 @@ namespace DemoQuiz
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmTryExam";
-            this.Text = "frmTryExam";
+            this.Text = "Đề thi";
             this.Load += new System.EventHandler(this.frmTryExam_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvExam)).EndInit();
             this.groupBox1.ResumeLayout(false);

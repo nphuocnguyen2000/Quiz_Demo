@@ -36,10 +36,6 @@ namespace DemoQuiz
 
         private void ControlCheckRole(bool v)
         {
-            btnTryExam.Visible = v;
-            btnHistoryExam.Visible = v;
-            btnCreateExam.Visible = !v;
-            btnHistoryCreateExam.Visible = !v;
         }
 
         private void ShowProfile()
@@ -47,7 +43,7 @@ namespace DemoQuiz
             lblFullName.Text = acc.FullName;
             lblFacultyName.Text = acc.Faculty1.FacultyName;
             _ = int.Parse(acc.role) == 0 ? lblClassName.Text = acc.Class1.ClassName : lblClassName.Text = "";
-            _ = int.Parse(acc.role) == 0 ? lblRoleAccount.Text = "Student" : lblRoleAccount.Text = "Teacher";
+            _ = int.Parse(acc.role) == 0 ? lblRoleAccount.Text = "STUDNET" : lblRoleAccount.Text = "TEACHER";
             if(int.Parse(acc.role) != 0)
                 lblClass.Visible = false;
         }

@@ -29,6 +29,7 @@ namespace DemoQuiz
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreateQuiz));
             this.label1 = new System.Windows.Forms.Label();
             this.txtExamName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -386,8 +387,9 @@ namespace DemoQuiz
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCreateQuiz";
-            this.Text = "frmCreateQuiz";
+            this.Text = "Tạo câu hỏi";
             this.Load += new System.EventHandler(this.frmCreateQuiz_Load);
             this.grboxQuiz.ResumeLayout(false);
             this.grboxQuiz.PerformLayout();

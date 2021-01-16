@@ -21,7 +21,7 @@ namespace DemoQuiz.DataAccessLayer
         [StringLength(10)]
         public string SubjectID { get; set; }
 
-        [StringLength(20)]
+        [StringLength(200)]
         public string ExamName { get; set; }
 
         [StringLength(10)]

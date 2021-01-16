@@ -91,6 +91,10 @@ namespace DemoQuiz.DataAccessLayer
                 .IsUnicode(false);
 
             modelBuilder.Entity<Subject>()
+                .Property(e => e.FacultyID)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Subject>()
                 .HasMany(e => e.Exams)
                 .WithRequired(e => e.Subject)
                 .WillCascadeOnDelete(false);

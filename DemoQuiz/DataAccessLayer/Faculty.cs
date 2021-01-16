@@ -14,6 +14,7 @@ namespace DemoQuiz.DataAccessLayer
         {
             Accounts = new HashSet<Account>();
             Classes = new HashSet<Class>();
+            Subjects = new HashSet<Subject>();
         }
 
         [StringLength(10)]
@@ -27,5 +28,8 @@ namespace DemoQuiz.DataAccessLayer
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Class> Classes { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Subject> Subjects { get; set; }
     }
 }

@@ -37,10 +37,19 @@ namespace DemoQuiz
             }
             using (var _dbContext = new QuizContextDB())
             {
-                Account acc = _dbContext.Accounts.ToList().Where(p => p.Email == email && p.Password == password).FirstOrDefault();
-                if (acc == null)
+                Account acc = _dbContext.Accounts.Where(p => p.Email == email ).FirstOrDefault();
+                Account acc1 = _dbContext.Accounts.Where(p => p.Password == password).FirstOrDefault();
+                if (acc == null && acc1 == null)
                 {
                     MessageBox.Show("Đăng nhập thất bại");
+                }
+                else if(acc == null && acc1 != null)
+                {
+                    MessageBox.Show("Không tìm thấy email này");
+                }
+                else if (acc != null && acc1 == null)
+                {
+                    MessageBox.Show("Sai mật khẩu");
                 }
                 else
                 {
@@ -64,6 +73,19 @@ namespace DemoQuiz
         {
             this.optShowPass.Checked = this.txtPassword.UseSystemPasswordChar;
             this.txtPassword.UseSystemPasswordChar = !this.txtPassword.UseSystemPasswordChar;
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if(textBox.Text == "")
+            {
+                errorProvider1.SetError(textBox, "Không dc để trống!");
+            }
+            else
+            {
+                errorProvider1.SetError(textBox, "");
+            }
         }
     }
 }

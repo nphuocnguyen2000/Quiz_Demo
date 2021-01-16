@@ -29,6 +29,7 @@ namespace DemoQuiz
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreateExam));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbSubject = new System.Windows.Forms.ComboBox();
@@ -50,6 +51,8 @@ namespace DemoQuiz
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbSearchSubject = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvAllExam = new System.Windows.Forms.DataGridView();
@@ -305,6 +308,8 @@ namespace DemoQuiz
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.cmbSearchSubject);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.btnSearchNameExam);
@@ -315,6 +320,26 @@ namespace DemoQuiz
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách đề thi";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 151);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(66, 17);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Môn học:";
+            // 
+            // cmbSearchSubject
+            // 
+            this.cmbSearchSubject.FormattingEnabled = true;
+            this.cmbSearchSubject.Items.AddRange(new object[] {
+            "Tất cả"});
+            this.cmbSearchSubject.Location = new System.Drawing.Point(78, 151);
+            this.cmbSearchSubject.Name = "cmbSearchSubject";
+            this.cmbSearchSubject.Size = new System.Drawing.Size(263, 24);
+            this.cmbSearchSubject.TabIndex = 7;
+            this.cmbSearchSubject.SelectedValueChanged += new System.EventHandler(this.cmbSearchSubject_SelectedValueChanged);
             // 
             // label7
             // 
@@ -331,9 +356,9 @@ namespace DemoQuiz
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.dgvAllExam);
-            this.groupBox3.Location = new System.Drawing.Point(0, 155);
+            this.groupBox3.Location = new System.Drawing.Point(0, 197);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(401, 314);
+            this.groupBox3.Size = new System.Drawing.Size(401, 272);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             // 
@@ -348,11 +373,11 @@ namespace DemoQuiz
             this.ExamName,
             this.ID,
             this.Subject});
-            this.dgvAllExam.Location = new System.Drawing.Point(0, 10);
+            this.dgvAllExam.Location = new System.Drawing.Point(0, 22);
             this.dgvAllExam.Name = "dgvAllExam";
             this.dgvAllExam.RowHeadersWidth = 51;
             this.dgvAllExam.RowTemplate.Height = 24;
-            this.dgvAllExam.Size = new System.Drawing.Size(401, 310);
+            this.dgvAllExam.Size = new System.Drawing.Size(401, 256);
             this.dgvAllExam.TabIndex = 3;
             this.dgvAllExam.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAllExam_CellClick);
             // 
@@ -381,7 +406,7 @@ namespace DemoQuiz
             // 
             this.btnSearchNameExam.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnSearchNameExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnSearchNameExam.Location = new System.Drawing.Point(109, 98);
+            this.btnSearchNameExam.Location = new System.Drawing.Point(108, 101);
             this.btnSearchNameExam.Name = "btnSearchNameExam";
             this.btnSearchNameExam.Size = new System.Drawing.Size(168, 32);
             this.btnSearchNameExam.TabIndex = 1;
@@ -398,6 +423,7 @@ namespace DemoQuiz
             this.txtSearchNameExam.Name = "txtSearchNameExam";
             this.txtSearchNameExam.Size = new System.Drawing.Size(305, 24);
             this.txtSearchNameExam.TabIndex = 0;
+            this.txtSearchNameExam.TextChanged += new System.EventHandler(this.txtSearchNameExam_TextChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -423,8 +449,9 @@ namespace DemoQuiz
             this.ClientSize = new System.Drawing.Size(1211, 588);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCreateExam";
-            this.Text = "frmCreateExam";
+            this.Text = "Tạo đề thi";
             this.Load += new System.EventHandler(this.frmCreateExam_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -472,5 +499,7 @@ namespace DemoQuiz
         private System.Windows.Forms.NumericUpDown quantityTime;
         private System.Windows.Forms.ComboBox cmbSubject;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbSearchSubject;
     }
 }

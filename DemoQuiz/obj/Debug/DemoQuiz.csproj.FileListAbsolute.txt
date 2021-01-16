@@ -22,3 +22,5 @@ C:\Users\nphuo\source\repos\DemoQuiz\DemoQuiz\obj\Debug\DemoQuiz.frmCreateQuiz.r
 C:\Users\nphuo\source\repos\DemoQuiz\DemoQuiz\obj\Debug\DemoQuiz.frmSearch.resources
 C:\Users\nphuo\source\repos\DemoQuiz\DemoQuiz\obj\Debug\DemoQuiz.frmHistoryCreateExam.resources
 C:\Users\nphuo\source\repos\DemoQuiz\DemoQuiz\obj\Debug\DemoQuiz.frmHistoryExam.resources
+C:\Users\nphuo\source\repos\DemoQuiz\DemoQuiz\obj\Debug\DemoQuiz.csprojAssemblyReference.cache
+C:\Users\nphuo\source\repos\DemoQuiz\DemoQuiz\obj\Debug\DemoQuiz.frmResultExam.resources

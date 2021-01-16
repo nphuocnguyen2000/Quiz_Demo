@@ -42,18 +42,10 @@ namespace DemoQuiz
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.tableMenuTeacher = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnSeach = new System.Windows.Forms.Button();
-            this.btnCreateExam = new System.Windows.Forms.Button();
-            this.btnTryExam = new System.Windows.Forms.Button();
-            this.btnHistoryExam = new System.Windows.Forms.Button();
-            this.btnHistoryCreateExam = new System.Windows.Forms.Button();
-            this.btnSupport = new System.Windows.Forms.Button();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tableMenuTeacher.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox7
@@ -207,123 +199,28 @@ namespace DemoQuiz
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
-            this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.groupBox1.Location = new System.Drawing.Point(513, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(671, 129);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox2.BackgroundImage")));
-            this.groupBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.groupBox2.Controls.Add(this.btnSupport);
-            this.groupBox2.Controls.Add(this.btnHistoryExam);
-            this.groupBox2.Controls.Add(this.btnHistoryCreateExam);
-            this.groupBox2.Controls.Add(this.btnTryExam);
-            this.groupBox2.Controls.Add(this.btnCreateExam);
-            this.groupBox2.Controls.Add(this.btnSeach);
-            this.groupBox2.Location = new System.Drawing.Point(12, 157);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(318, 389);
-            this.groupBox2.TabIndex = 7;
-            this.groupBox2.TabStop = false;
-            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.groupBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox3.BackgroundImage")));
-            this.groupBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.groupBox3.Location = new System.Drawing.Point(353, 157);
+            this.groupBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.groupBox3.Location = new System.Drawing.Point(3, 157);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(843, 389);
+            this.groupBox3.Size = new System.Drawing.Size(1193, 471);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
-            // 
-            // btnSeach
-            // 
-            this.btnSeach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnSeach.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSeach.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnSeach.ForeColor = System.Drawing.Color.Black;
-            this.btnSeach.Location = new System.Drawing.Point(14, 42);
-            this.btnSeach.Name = "btnSeach";
-            this.btnSeach.Size = new System.Drawing.Size(208, 50);
-            this.btnSeach.TabIndex = 12;
-            this.btnSeach.Text = "Tìm kiếm";
-            this.btnSeach.UseVisualStyleBackColor = false;
-            this.btnSeach.Click += new System.EventHandler(this.btnSeach_Click);
-            // 
-            // btnCreateExam
-            // 
-            this.btnCreateExam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnCreateExam.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCreateExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnCreateExam.ForeColor = System.Drawing.Color.Black;
-            this.btnCreateExam.Location = new System.Drawing.Point(14, 116);
-            this.btnCreateExam.Name = "btnCreateExam";
-            this.btnCreateExam.Size = new System.Drawing.Size(208, 50);
-            this.btnCreateExam.TabIndex = 13;
-            this.btnCreateExam.Text = "Tạo đề thi";
-            this.btnCreateExam.UseVisualStyleBackColor = false;
-            // 
-            // btnTryExam
-            // 
-            this.btnTryExam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnTryExam.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTryExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnTryExam.ForeColor = System.Drawing.Color.Black;
-            this.btnTryExam.Location = new System.Drawing.Point(14, 116);
-            this.btnTryExam.Name = "btnTryExam";
-            this.btnTryExam.Size = new System.Drawing.Size(208, 50);
-            this.btnTryExam.TabIndex = 13;
-            this.btnTryExam.Text = "Luyện thi";
-            this.btnTryExam.UseVisualStyleBackColor = false;
-            // 
-            // btnHistoryExam
-            // 
-            this.btnHistoryExam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnHistoryExam.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHistoryExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnHistoryExam.ForeColor = System.Drawing.Color.Black;
-            this.btnHistoryExam.Location = new System.Drawing.Point(14, 191);
-            this.btnHistoryExam.Name = "btnHistoryExam";
-            this.btnHistoryExam.Size = new System.Drawing.Size(208, 50);
-            this.btnHistoryExam.TabIndex = 13;
-            this.btnHistoryExam.Text = "Lịch sử thi";
-            this.btnHistoryExam.UseVisualStyleBackColor = false;
-            // 
-            // btnHistoryCreateExam
-            // 
-            this.btnHistoryCreateExam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnHistoryCreateExam.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHistoryCreateExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnHistoryCreateExam.ForeColor = System.Drawing.Color.Black;
-            this.btnHistoryCreateExam.Location = new System.Drawing.Point(14, 191);
-            this.btnHistoryCreateExam.Name = "btnHistoryCreateExam";
-            this.btnHistoryCreateExam.Size = new System.Drawing.Size(208, 50);
-            this.btnHistoryCreateExam.TabIndex = 14;
-            this.btnHistoryCreateExam.Text = "Lịch sử tạo đề thi";
-            this.btnHistoryCreateExam.UseVisualStyleBackColor = false;
-            // 
-            // btnSupport
-            // 
-            this.btnSupport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnSupport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSupport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnSupport.ForeColor = System.Drawing.Color.Black;
-            this.btnSupport.Location = new System.Drawing.Point(14, 267);
-            this.btnSupport.Name = "btnSupport";
-            this.btnSupport.Size = new System.Drawing.Size(208, 50);
-            this.btnSupport.TabIndex = 13;
-            this.btnSupport.Text = "Hỗ trợ";
-            this.btnSupport.UseVisualStyleBackColor = false;
             // 
             // frmHome
             // 
@@ -332,8 +229,8 @@ namespace DemoQuiz
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1211, 588);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.tableMenuTeacher);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmHome";
             this.Text = "Home";
             this.Load += new System.EventHandler(this.frmHome_Load);
@@ -341,7 +238,6 @@ namespace DemoQuiz
             this.groupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.tableMenuTeacher.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -358,14 +254,7 @@ namespace DemoQuiz
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TableLayoutPanel tableMenuTeacher;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lblRoleAccount;
-        private System.Windows.Forms.Button btnSeach;
-        private System.Windows.Forms.Button btnHistoryExam;
-        private System.Windows.Forms.Button btnHistoryCreateExam;
-        private System.Windows.Forms.Button btnTryExam;
-        private System.Windows.Forms.Button btnCreateExam;
-        private System.Windows.Forms.Button btnSupport;
     }
 }

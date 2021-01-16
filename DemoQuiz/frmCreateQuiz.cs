@@ -17,7 +17,7 @@ namespace DemoQuiz
         private Exam exam;
         private string titleLbl;
         private string check;
-        private int demAnwer = 1;
+        private int demAnwer = 1, demQuiz;
 
         public frmCreateQuiz()
         {
@@ -91,6 +91,8 @@ namespace DemoQuiz
 
             using (var _dbContext = new QuizContextDB())
             {
+                this.demQuiz++;
+                lblNumberQuiz.Text = "Câu" + this.demQuiz.ToString() + ":";
                 Quiz quiz = new Quiz()
                 {
                     QuizName = txtQuizName.Text,

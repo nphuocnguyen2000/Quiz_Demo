@@ -47,7 +47,7 @@ namespace DemoQuiz
                         dgvHistoryCreateExam.Rows[viTriDong].Cells[0].Value = exam.ExamID;
                         dgvHistoryCreateExam.Rows[viTriDong].Cells[1].Value = exam.ExamName;
                         dgvHistoryCreateExam.Rows[viTriDong].Cells[2].Value = exam.Subject.SubjectName;
-                        dgvHistoryCreateExam.Rows[viTriDong].Cells[3].Value = exam.Account.Faculty1.FacultyName;
+                        dgvHistoryCreateExam.Rows[viTriDong].Cells[3].Value = exam.Account.Class1.Faculty.FacultyName;
                         dgvHistoryCreateExam.Rows[viTriDong].Cells[4].Value = exam.dateCreate;
                         dgvHistoryCreateExam.Rows[viTriDong].Cells[5].Value = exam.TotalQuiz;
                     }
